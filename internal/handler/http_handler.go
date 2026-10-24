@@ -1,8 +1,9 @@
 package handler
 
 import (
-	"encoding/json"
 	"net/http"
+
+	"github.com/FarhanDH/sidingin-rating-service/internal/models"
 )
 
 type Handler struct {
@@ -13,9 +14,5 @@ func NewHandler() *Handler {
 }
 
 func (*Handler) Health(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(map[string]string{
-		"ping": "pong",
-	})
+	models.WriteSuccess(w, http.StatusOK, "oke", map[string]string{"ping": "pong"})
 }

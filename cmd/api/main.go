@@ -20,7 +20,7 @@ func main() {
 	mux.HandleFunc("GET /health", handler.Health)
 
 	if err := http.ListenAndServe(port, mux); err != nil {
-		logger.Error("server failed to start: %v", "error", err)
+		logger.Error("server failed to start", "error", err)
 		os.Exit(1)
 	}
 }
