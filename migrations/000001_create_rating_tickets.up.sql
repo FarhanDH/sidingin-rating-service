@@ -1,7 +1,7 @@
 CREATE TABLE rating_tickets (
     order_id TEXT PRIMARY KEY,
     customer_id TEXT NOT NULL,
-    technician_id TEXT NOT NULL,
+    technician_id TEXT NOT NULL, -- snapshot when the order is completed.
     completed_order_at TIMESTAMPTZ NOT NULL,
     expires_at TIMESTAMPTZ NOT NULL,
     reminder_count SMALLINT NOT NULL DEFAULT 0,

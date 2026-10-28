@@ -9,8 +9,8 @@ CREATE TABLE ratings (
     app_platform TEXT, -- 'pwa', 'android', 'ios', only for ...to_app direction
     app_version TEXT, -- ...to_app direction
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    UNIQUE(order_id, direction),
-    UNIQUE(id, direction)
+    UNIQUE(order_id, direction),  -- Ensure one rating per order direction.
+    UNIQUE(id, direction) -- needed Composite FK for rating_selections
 );
 CREATE INDEX on ratings (created_at DESC);
 CREATE INDEX on ratings (created_at) WHERE is_requires_review; -- partial index for admin queue
