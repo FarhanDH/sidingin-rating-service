@@ -81,7 +81,7 @@ func (r *postgresRepo) GetTicketsByOrderIDs(ctx context.Context, orderIDs []stri
 }
 
 func (r *postgresRepo) GetRatedOrderIDs(ctx context.Context, orderIDs []string, direction domain.DirectionRatingType) (map[string]bool, error) {
-	fmt.Printf("GetRatedOrderIDs(), for %d orders with direction: %w", len(orderIDs), direction)
+	fmt.Printf("GetRatedOrderIDs(), for %d orders with direction: %v", len(orderIDs), direction)
 
 	query := `
 		SELECT order_id
